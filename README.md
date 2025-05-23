@@ -1,1 +1,3 @@
-
+This is a simple, interactive Python-based command-line dictionary tool that uses the Merriam-Webster Collegiate Dictionary API to fetch definitions for English words. It allows you to enter words via an interactive prompt and displays the main word, part of speech, pronunciation, and a concise definition in a color-coded format using the rich library. To run this application locally, simply install Docker and start the Docker daemon. Then, open your terminal (such as VSCode terminal or any interactive shell) and run the following command:
+"docker run -it --name dictonaryapp tapashdeb/dictonaryapp:latest"
+This command will automatically pull the latest image from Docker Hub and launch the CLI tool, allowing you to start using the dictionary instantly. The required API key is already embedded in the code, so once the container starts, the application will be ready to use immediately.
