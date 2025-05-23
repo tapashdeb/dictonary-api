@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches: 
-      - mas
+      - main
 
 jobs:
   build:
@@ -13,16 +13,13 @@ jobs:
     - name: checkout Code
       uses: actions/checkout@v3
 
-    - name: Login to dockerhub
-      uses: docker/login-action@v3
-      with:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and push
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        push: true
-        tags: ghcr.io/${{ github.repository_owner }}/dictcli:latest
+    - name: Build the docker image
+      run: |
+          docker build -t dictonaryapp .
+          docker tag dictonaryapp tapashdeb/dictonaryapp:latest
+
+    - name: Push Image to docker hub
+      run: |
+          docker push tapashdeb/dictonaryapp:latest
 
