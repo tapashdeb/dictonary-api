@@ -13,6 +13,12 @@ jobs:
     - name: checkout Code
       uses: actions/checkout@v3
 
+    - name: Dockerhub-login
+      uses: actions/docker-login@v3
+      with:
+          username: "${{vars.username}}"
+          password: "${{vars.password}}"
+
 
     - name: Build the docker image
       run: |
