@@ -19,7 +19,7 @@ def main():
             continue
 
         data = response.json()
-        if not data or not isinstance(data[0], dict):
+        if not data:
             print("[bold red]No definitions found.[/bold red]")
             continue
 
